@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
-import '../App.css'
+import "../App.css";
 import axios from "axios";
+import ReactPlayer from "react-player";
 const api = axios.create({
-	baseURL: 'http://localhost:5000'
-})
+	baseURL: "http://localhost:5000",
+});
 
 const Seller = () => {
 	const role = window.localStorage.getItem("role");
@@ -14,38 +15,26 @@ const Seller = () => {
 		<div>
 			<Navbar role={role} />
 			<div className='video'>
-				<VideoForm />
+				<VideoPlayer />
 			</div>
 		</div>
 	);
 };
 
+const VideoPlayer = () => {
+	const [url, setUrl] = useState("");
 
-const VideoForm = () => {
-	const [videoUrl, setVideoUrl] = useState("");
-
-	const [isPlaying, setIsPlaying] = useState(false);
-
-	// Function to handle video URL submission
-	const handleVideoSubmit = (e) => {
-		e.preventDefault();
-		setIsPlaying(true);
+	const handleUrlChange = (e) => {
+		setUrl(e.target.value);
 	};
 
 	return (
 		<div>
-			<form onSubmit={handleVideoSubmit}>
-				<input
-					type='text'
-					value={videoUrl}
-					onChange={(e) => setVideoUrl(e.target.value)}
-					placeholder='Enter video URL'
-				/>
-				<button type='submit'>Play Video</button>
-			</form>
-			{/* Render embedded video using react-player */}
-			{isPlaying && <ReactPlayer url={videoUrl} controls />}
+			<h1>Video Player</h1>
+			<input type='text' value={url} onChange={handleUrlChange} placeholder='Enter URL' />
+			{url && <ReactPlayer url={url} controls={true} />}
 		</div>
 	);
 };
+
 export default Seller;
