@@ -1,0 +1,158 @@
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* app.css */
+.register-form {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.form-label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+.form-input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 16px;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.197);
+	padding: 10px;
+	border: 1px solid #0000005f;
+}
+
+.form-select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 16px;
+}
+
+.form-button {
+	width: 100%;
+	padding: 8px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.form-button:hover {
+	background-color: #0056b3;
+}
+
+/* Styles for the Login component */
+.login-form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.login-label,
+.login-input {
+	margin-bottom: 10px;
+}
+
+.login-input {
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.197);
+	padding: 10px;
+	border: 1px solid #0000002f;
+}
+
+.login-button {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #007bff;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	border-radius: 20px;
+}
+
+.login-button:hover {
+	background-color: #0056b3;
+}
+
+.login-error {
+	color: red;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.login-link {
+	color: blue;
+	cursor: pointer;
+}
+
+/* NAVBAR */
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	background-color: black;
+	color: #f2f2f2;
+}
+
+.nav__items {
+	display: flex;
+}
+
+.nav__items > * {
+	margin-left: 2rem;
+}
+
+.add__product {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 400px;
+	padding: 2rem;
+	background-color: #f2f2f2;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	border: solid 1px rgba(59, 59, 59, 0.342);
+}
+
+.add__product form {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.add__product input {
+	padding: .5rem;
+	border-radius: 10px;
+	border: solid .5px gray;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.316);
+}
+
+.add__product form > * {
+	margin-bottom: 0.5rem;
+}
+
+.add__product button {
+	border: none;
+	outline: none;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	background-color: #0056b3;
+	color: #f2f2f2;	
+	border-radius: 15px;
+	margin-top: 1rem;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
