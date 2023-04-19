@@ -13,14 +13,11 @@ router.post("/seller/:sellerId/createproduct", async (req, res) => {
 			productName,
 			productPrice,
 			quantity,
-			sellerId, // Add userId to the new product object
+			sellerId, // Add sellerId to the new product object
 		});
 
 		// Save the new product to the database
 		await newProduct.save();
-
-		// Populate the userId field with the corresponding user object
-		await newProduct.populate("sellerId").execPopulate();
 
 		res.status(200).json({ message: "Product saved successfully" });
 	} catch (error) {

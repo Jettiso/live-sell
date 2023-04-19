@@ -26,9 +26,9 @@ const productSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
-	sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "user" }, // Add ref field to reference User model
-	createdAt: { type: Date, default: Date.now },
-	updatedAt: { type: Date, default: Date.now },
+	sellerId: {
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+	},
 });
-
 export const ProductModel = productDBConnection.model("product", productSchema);
