@@ -156,3 +156,19 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+.video__player {
+	display: flex;
+	align-items: center;
+	width: 700px;
+	margin: 5rem auto;
+	flex-direction: column;
+}
+
+.video__player input {
+margin-bottom: 1rem;
+padding: 1rem 2rem;
+border-radius: 15px;
+box-shadow: 2px 4px 8px rgba(33, 33, 33, 0.423);
+border: .5px solid rgba(0, 0, 0, 0.197) ,fgr4;
+}
