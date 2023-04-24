@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 const api = axios.create({
 	baseURL: "http://localhost:5000",
@@ -35,6 +36,7 @@ const AddProductForm = () => {
 				sellerId,
 			});
 
+			
 			// Reset the form inputs
 			setProductName("");
 			setProductPrice("");
@@ -48,16 +50,19 @@ const AddProductForm = () => {
 	};
 
 	return (
-		<div className='add__product'>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor='productName'>Product Name</label>
-				<input type='text' id='productName' value={productName} onChange={handleProductNameChange} />
-				<label htmlFor='productPrice'>Product Price</label>
-				<input type='number' id='productPrice' value={productPrice} onChange={handleProductPriceChange} />
-				<label htmlFor='quantity'>Quantity</label>
-				<input type='number' id='quantity' value={quantity} onChange={handleQuantityChange} />
-				<button type='submit'>Add Product</button>
-			</form>
+		<div>
+			<Navbar />
+			<div className='add__product'>
+				<form onSubmit={handleSubmit}>
+					<label htmlFor='productName'>Product Name</label>
+					<input type='text' id='productName' value={productName} onChange={handleProductNameChange} />
+					<label htmlFor='productPrice'>Product Price</label>
+					<input type='number' id='productPrice' value={productPrice} onChange={handleProductPriceChange} />
+					<label htmlFor='quantity'>Quantity</label>
+					<input type='number' id='quantity' value={quantity} onChange={handleQuantityChange} />
+					<button type='submit'>Add Product</button>
+				</form>
+			</div>	
 		</div>
 	);
 };

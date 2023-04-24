@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import ProductModel from "./ProductModel.js";
+ProductModel;
 
 const userDBConnection = mongoose.createConnection("mongodb://127.0.0.1:27017/users", {
 	useNewUrlParser: true,
@@ -35,9 +37,9 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-    
+	products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'product' }]
 	
 });
 
 // Create and export the user model
-export const UserModel = userDBConnection.model("user", userSchema);
+export const UserModel = userDBConnection.model("users", userSchema);

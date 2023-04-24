@@ -1,6 +1,6 @@
 import express from "express";
 import { UserModel } from "../models/UserModel.js";
-import { ProductModel } from "../models/ProductModel.js";
+import ProductModel from "../models/ProductModel.js";
 const router = express.Router();
 
 router.post("/seller/:sellerId/createproduct", async (req, res) => {
@@ -9,16 +9,20 @@ router.post("/seller/:sellerId/createproduct", async (req, res) => {
 		const { productName, productPrice, quantity } = req.body;
 
 		// Create a new product using the ProductModel
+		const user = await UserModel.findById(sellerId);
 		const newProduct = new ProductModel({
 			productName,
 			productPrice,
 			quantity,
-			sellerId, // Add sellerId to the new product object
+			sellerId: user, // Add sellerId to the new product object
 		});
 
 		// Save the new product to the database
+		
 		await newProduct.save();
-
+		user.products.push(newProduct);
+		await user.save();
+		console.log(newProduct);
 		res.status(200).json({ message: "Product saved successfully" });
 	} catch (error) {
 		console.error("Failed to save product:", error);
@@ -26,12 +30,17 @@ router.post("/seller/:sellerId/createproduct", async (req, res) => {
 	}
 });
 
-router.get("/seller/:userId/allproducts", async (req, res) => {
+router.get("/seller/:sellerId/allproducts", async (req, res) => {
 	try {
-		const { userId } = req.params;
+		const { sellerId } = req.params;
 
-		const user = await UserModel.findById(userId).populate("products");
+		// Find the corresponding user in the UserModel and populate the products field
+		const user = await UserModel.findById(sellerId).populate({
+			path: "products",
+			model: ProductModel,
+		});
 
+		console.log(user);
 		res.status(200).json({ products: user.products });
 	} catch (error) {
 		console.error("Failed to retrieve user products:", error);

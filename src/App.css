@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
 *,
 ::before,
 ::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* app.css */
@@ -171,4 +174,29 @@ padding: 1rem 2rem;
 border-radius: 15px;
 box-shadow: 2px 4px 8px rgba(33, 33, 33, 0.423);
 border: .5px solid rgba(0, 0, 0, 0.197) ,fgr4;
+}
+
+.allProducts__container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	max-width: 70%;
+	margin: 0 auto;
+
+}
+
+.allProducts__container > h1 {
+	margin-top: 2rem;
+}
+
+.product__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly ;
+	padding: 1rem;
+	margin: 1rem;
+	border: 1px solid rgba(128, 128, 128, 0.471);
+	width: 100%;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

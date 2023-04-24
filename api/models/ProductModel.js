@@ -6,7 +6,7 @@ const productDBConnection = mongoose.createConnection("mongodb://127.0.0.1:27017
 });
 
 productDBConnection.on("connected", () => {
-	console.log("Connected to productDB");
+	console.log("Connected to productsDB");
 });
 
 productDBConnection.on("error", (err) => {
@@ -28,7 +28,8 @@ const productSchema = new mongoose.Schema({
 	},
 	sellerId: {
 		type: mongoose.Schema.Types.ObjectId,
-		required: true,
+		ref: 'users',
 	},
 });
-export const ProductModel = productDBConnection.model("product", productSchema);
+const ProductModel = productDBConnection.model("product", productSchema);
+export default ProductModel;

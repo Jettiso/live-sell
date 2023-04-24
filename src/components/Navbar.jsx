@@ -23,10 +23,10 @@ const BuyerNav = () => {
 const SellerNav = () => {
 	return (
 		<div className='nav__items'>
-			<Link to={"/products"}>
+			<Link to={"/seller/allproducts"}>
 				<h2>Products</h2>
 			</Link>
-			<Link to={"/addproduct"}>
+			<Link to={"/seller/addproduct"}>
 				<h2>Add Product</h2>
 			</Link>
 			<h2>Profile</h2>

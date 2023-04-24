@@ -10,10 +10,9 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use("/register", authRouter);
 app.use("/", authRouter);
-app.use('/login', authRouter)
-app.use('/seller/createproduct', userRouter)
+app.use("/", userRouter);
+
 
 
 app.listen(PORT, () => console.log(`Server is running on port:${PORT}`));
