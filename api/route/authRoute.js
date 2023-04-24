@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
 	res.json({ message: "User registered successfully" });
 });
 
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
 	const { username, password } = req.body;
 
 	try {

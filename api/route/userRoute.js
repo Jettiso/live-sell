@@ -18,7 +18,7 @@ router.post("/seller/:sellerId/createproduct", async (req, res) => {
 		});
 
 		// Save the new product to the database
-		
+
 		await newProduct.save();
 		user.products.push(newProduct);
 		await user.save();
