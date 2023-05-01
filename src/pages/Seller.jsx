@@ -29,8 +29,11 @@ const VideoPlayer = () => {
 	};
 
 	return (
-		<div className="video__player">
-			<input type='text' value={url} onChange={handleUrlChange} placeholder='Enter your live video URL' />
+		<div className='video__player'>
+			<div className='urlInput__container'>
+				<input type='text' value={url} onChange={handleUrlChange} placeholder='Enter your live video URL' />
+				<button onClick={handleUrlChange}></button>
+			</div>
 			{url && <ReactPlayer url={url} controls={true} />}
 		</div>
 	);

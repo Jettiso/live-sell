@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Navbar = ({ role }) => {
 	return (
 		<div className='navbar'>
@@ -14,8 +15,6 @@ const BuyerNav = () => {
 	return (
 		<div className='nav__items'>
 			<input type='text' placeholder='search for a user or product' />
-			<h2>Cart</h2>
-			<h2>Profile</h2>
 			<Link
 				to={"/"}
 				onClick={(e) => {
@@ -37,7 +36,7 @@ const SellerNav = () => {
 			<Link to={"/seller/allproducts"}>
 				<h2>Products</h2>
 			</Link>
-			<Link to={"/seller/addproduct"}>
+			<Link to={"/seller/addproduct"} target="_blank">
 				<h2>Add Product</h2>
 			</Link>
 			<Link

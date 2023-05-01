@@ -16,15 +16,33 @@ const AddProductForm = () => {
 	};
 
 	const handleProductPriceChange = (e) => {
-		setProductPrice(e.target.value);
+		const newPrice = e.target.value;
+		if (newPrice >= 0) {
+			setProductPrice(newPrice);
+		}
 	};
 
 	const handleQuantityChange = (e) => {
-		setQuantity(e.target.value);
+		const newQuantity = e.target.value;
+		if (newQuantity >= 0) {
+			setQuantity(newQuantity);
+		}
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		if (productPrice === "" || quantity === "") {
+			console.log("Error: Product price and quantity cannot be empty.");
+			// or you can update a state variable to display the error message on the UI
+			return;
+		}
+
+		if (productPrice === 0 || quantity === 0) {
+			console.log("Error: Product price and quantity cannot be zero.");
+			// or you can update a state variable to display the error message on the UI
+			return;
+		}
 
 		try {
 			// Send a POST request to the backend API to add the product
@@ -36,7 +54,6 @@ const AddProductForm = () => {
 				sellerId,
 			});
 
-			
 			// Reset the form inputs
 			setProductName("");
 			setProductPrice("");
@@ -62,7 +79,7 @@ const AddProductForm = () => {
 					<input type='number' id='quantity' value={quantity} onChange={handleQuantityChange} />
 					<button type='submit'>Add Product</button>
 				</form>
-			</div>	
+			</div>
 		</div>
 	);
 };

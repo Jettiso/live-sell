@@ -5,7 +5,7 @@ import "./App.css";
 import Seller from "./pages/Seller";
 import AddProduct from "./pages/AddProduct";
 import AllProducts from "./pages/AllProducts";
-import SearchPage from "./pages/SearchPage";
+import Buyer from "./pages/Buyer";
 
 function App() {
 	
@@ -17,7 +17,7 @@ function App() {
 				<Route path='/seller' element={<Seller />} />
 				<Route path='/seller/addproduct' element={<AddProduct />} />
 				<Route path='/seller/allproducts' element={<AllProducts />} />
-				<Route path="/buyer" element={<SearchPage />} />
+				<Route path="/buyer" element={<Buyer />} />
 			</Routes>
 		</Router>
 	);

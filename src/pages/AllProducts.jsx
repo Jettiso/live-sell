@@ -40,7 +40,7 @@ const SellerProducts = () => {
 					<div className='allProducts__container'>
 					<h1>Seller's Products</h1>
 						{products.map((product) => (
-							<div className='product__wrapper'>
+							<div className='product__wrapper' key={product._id}>
 								<h1>{product.productName}</h1>
 								<h2>${product.productPrice}</h2>
 								<h2>Qty: {product.quantity}</h2>
